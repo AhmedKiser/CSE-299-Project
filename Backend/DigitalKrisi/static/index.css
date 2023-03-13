@@ -11,6 +11,7 @@
     color: white !important;
 }
 
-a .nav-link{
+.nav-item .btn{
+    background-color: gray;
     color: white;
 }
