@@ -13,5 +13,12 @@ def login(request):
     return render(request,'login.html')
 
 def registration(request):
-    fb = userReg()
+    if request.method == 'POST':
+        fb = userReg(request.POST)
+        if fb.is_valid():
+            print(fb.cleaned_data['password'])
+            print(fb.cleaned_data['re_password'])
+    
+    else:
+        fb = userReg()
     return render(request,'registration.html',{'form': fb})
