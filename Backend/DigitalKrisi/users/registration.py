@@ -5,4 +5,4 @@ class userReg(forms.Form):
     email = forms.EmailField()
     phone = forms.CharField()
     DOB = forms.DateField()
-    password = forms.PasswordInput()
+    password = forms.CharField(widget=forms.PasswordInput)
