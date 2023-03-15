@@ -4,8 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-# from django.shortcuts import render
-# from .models import MyModel
+
 from .registration import userReg
 
 
@@ -19,14 +18,6 @@ def landingPage(request):
 def login(request):
     return render(request,'login.html')
 
-# def my_form(request):
-#   if request.method == "POST":
-#     form = MyForm(request.POST)
-#     if form.is_valid():
-#       form.save()
-#   else:
-#       form = MyForm()
-#   return render(request, 'cv-form.html', {'form': form})
 
 def registration(request):
     if request.method == 'POST':
