@@ -3,15 +3,14 @@
     
 }
 .navbar{
-    background-color: rgba(82, 106, 78, 1);
+    background-color: 526A4E;
 }
 
 .card{
     width:20%;
     display: inline-block;
-    background-color: rgba(82, 106, 78, 1);
+    background-color: 526A4E;
     border-radius: 5px;
     margin: 50px 70px;
     box-shadow: 2px 2px 10px black;
-
 }
