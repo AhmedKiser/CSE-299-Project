@@ -1,0 +1,17 @@
+*{
+    
+    
+}
+.navbar{
+    background-color: rgba(82, 106, 78, 1);
+}
+
+.card{
+    width:20%;
+    display: inline-block;
+    background-color: rgba(82, 106, 78, 1);
+    border-radius: 5px;
+    margin: 50px 70px;
+    box-shadow: 2px 2px 10px black;
+
+}
