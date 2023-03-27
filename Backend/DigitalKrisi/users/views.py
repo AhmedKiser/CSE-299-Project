@@ -16,6 +16,9 @@ def landingPage(request):
 def login(request):
     return render(request,'login.html')
 
+def predict(request):
+    return render(request,'prediction.html')
+
 
 # def registration(request):
 #     if request.method == 'POST':
