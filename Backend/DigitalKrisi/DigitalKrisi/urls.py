@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.landingPage),
     path('login/',views.LoginUser, name='login'),
-    path('predict/',views.predict),
+    path('predict/',views.predict,name="predict"),
     path('registration/',views.registration,name='registration'),
     path('accounts/', include('allauth.urls')),
 ]

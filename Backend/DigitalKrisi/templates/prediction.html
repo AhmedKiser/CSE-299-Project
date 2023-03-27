@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,33 +33,28 @@
                 <div class="col-lg-7 col-xl-7 card flex-row mx-auto px-0 bg-success">
                   <div class="col-lg-10 px-4 pt-5 text-center">
                   <h2 ><b>Predict of Crop</b></h2><br>
-                    <form>{% csrf_token %}
+                    <form method="POST" >
+                      {% csrf_token %}
                         <div class="'form-row">
                             <div class="clg-lg-5 ">
-                                <input type="nitrogen" placeholder="Nitrogen" class="form-control my-3 p-3">
+                                <input type="nitrogen" placeholder="Nitrogen" class="form-control my-3 p-3" name="n">
                             </div>
                         </div>
                         <div class="'form-row">
                             <div class="clg-lg-7 ">
-                                <input type="phosphorus" placeholder="Phosphorus" class="form-control my-3 p-3">
+                                <input type="phosphorus" placeholder="Phosphorus" class="form-control my-3 p-3" name="p">
                             </div>
                         </div>
                         <div class="'form-row">
                             <div class="clg-lg-7">
-                                <input type="pottasium" placeholder="Pottasium" class="form-control  my-3 p-3">
+                                <input type="pottasium" placeholder="Pottasium" class="form-control  my-3 p-3" name ="k">
                             </div>
                             </div>
                             <div class="'form-row">
                                 <div class="clg-lg-7 ">
-                                    <input type="PH" placeholder="PH Level" class="form-control my-3 p-3">
+                                    <input type="PH" placeholder="PH Level" class="form-control my-3 p-3 " name="ph">
                                 </div>
-                            </div>
-                                <div class="'form-row">
-                                  <div class="card-body text-center">
-                                    <a href="#" class="btn btn-dark">Predict</a>
-                                  </div>
-                                  <br>
-                            </div>
+                                <button type="submit" class="btn btn-primary" value="submit">Submit</button>
                     </form>
                   </div>
               </div>

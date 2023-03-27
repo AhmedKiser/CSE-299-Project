@@ -11,3 +11,12 @@ class user(models.Model):
     uPassword = models.CharField(max_length=40)
     # repassword = models.CharField(max_length=40)
 
+
+class prediction(models.Model):
+    # uID = models.IntegerField(null=True)
+    n = models.FloatField(max_length=40)
+    p = models.FloatField(max_length=30)
+    k = models.FloatField(max_length=15)
+    ph = models.FloatField()
+    
+

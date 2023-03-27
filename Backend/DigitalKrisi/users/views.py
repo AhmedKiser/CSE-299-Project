@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as authlogin
+from .models import prediction
 
 
 # Create your views here.
@@ -17,7 +18,18 @@ def login(request):
     return render(request,'login.html')
 
 def predict(request):
-    return render(request,'prediction.html')
+    if request.method=='POST':
+        nt=request.POST.get('n')
+        pp=request.POST.get('p')
+        kp=request.POST.get('k')
+        ph=request.POST.get('ph')
+
+        new_data = prediction(n = nt, p = pp, k = kp, ph = ph)
+        new_data.save()
+    
+    
+    return render(request, 'prediction.html')
+    
 
 
 # def registration(request):
