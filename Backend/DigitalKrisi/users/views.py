@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -7,6 +7,13 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as authlogin
+from .models import prediction
+from .forms import InputForm
+import pickle
+import numpy as np
+import pandas as pd
+
+
 
 
 # Create your views here.
@@ -15,6 +22,76 @@ def landingPage(request):
 
 def login(request):
     return render(request,'login.html')
+
+def predict(request):
+    
+    if request.method=='POST':
+        nt=float(request.POST.get('n'))
+        pp=float(request.POST.get('p'))
+        kp=float(request.POST.get('k'))
+        ph=float(request.POST.get('ph'))
+
+        # with open('C:/Users/User/Desktop/299/CSE-299-Project/Model/model_pickle','rb') as file: 
+        #         model = pickle.load(file)
+        # # model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.sav', 'rb'))
+        
+        # prediction = model.predict(np.array([[nt, pp, kp, ph]]))[0]
+        # # prediction = model.predict([[nt, pp, kp, ph]])
+        
+        # # new_data = prediction(n = nt, p = pp, k = kp, ph = ph)
+        # # new_data.save()
+        # crop_names = ['wheat', 'rice', 'maize', 'chickpea', 'kidney beans', 'pigeon peas', 'moth beans', 'mung beans', 'black gram', 'lentil', 'pomegranate', 'banana', 'mango', 'grapes', 'watermelon', 'muskmelon', 'apple', 'orange', 'papaya', 'coconut', 'cotton', 'jute', 'coffee']
+        # predicted_crop = crop_names[prediction]
+        # context = {'predicted_crop': predicted_crop}
+        # return render(request, 'result.html', context)
+
+
+        model = pd.read_pickle(r"C:\Users\User\Desktop\299\CSE-299-Project\Model\modelpickle")
+        # Make prediction
+        result = model.predict([[nt ,pp, kp, ph]])
+
+        classification = result[0]
+
+        prediction.objects.create(n = np, p = pp, k = kp, ph=ph)
+    
+    return JsonResponse({'result': classification, 'n': np,
+                             'p': kp, 'k': pp, 'ph': ph},
+                            safe=False)
+
+
+def view_results(request):
+    # Submit prediction and show all
+    data = {"dataset": prediction.objects.all()}
+    return render(request, "results.html", data)
+
+# def predict(request):
+#     if request.method == 'POST':
+#         form = InputForm(request.POST)
+#         if form.is_valid():
+#             # Get the input values from the form
+#             temperature = form.cleaned_data['temperature']
+#             humidity = form.cleaned_data['humidity']
+#             rainfall = form.cleaned_data['rainfall']
+
+#             # Load the ML model
+#             with open('model.pkl', 'rb') as f:
+#                 model = pickle.load(f)
+
+#             # Make a prediction using the model
+#             prediction = model.predict(np.array([[temperature, humidity, rainfall]]))[0]
+
+#             # Map the prediction index to the crop name
+#             crop_names = ['wheat', 'rice', 'maize', 'chickpea', 'kidney beans', 'pigeon peas', 'moth beans', 'mung beans', 'black gram', 'lentil', 'pomegranate', 'banana', 'mango', 'grapes', 'watermelon', 'muskmelon', 'apple', 'orange', 'papaya', 'coconut', 'cotton', 'jute', 'coffee']
+#             predicted_crop = crop_names[prediction]
+
+#             # Render the result page
+#             context = {'predicted_crop': predicted_crop}
+#             return render(request, 'result.html', context)
+#     else:
+#         form = InputForm()
+#     context = {'form': form}
+#     return render(request, 'home.html', context)
+
 
 
 # def registration(request):
