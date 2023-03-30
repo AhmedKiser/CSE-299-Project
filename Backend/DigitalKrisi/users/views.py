@@ -46,7 +46,7 @@ def predict(request):
         context = {'predicted_crop': predicted_crop}
         
         
-    return render(request, 'result.html')
+    return render(request, 'result.html')   
     #     model = pd.read_pickle(r"C:/Users/User/Desktop/299/CSE-299-Project\Model\modelpickle")
     #     # Make prediction
     #     result = model.predict([[nt ,pp, kp, ph]])
