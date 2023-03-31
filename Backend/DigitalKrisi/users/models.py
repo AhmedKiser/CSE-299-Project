@@ -18,5 +18,5 @@ class prediction(models.Model):
     p = models.FloatField(max_length=30)
     k = models.FloatField(max_length=15)
     ph = models.FloatField()
-    
+        
 
