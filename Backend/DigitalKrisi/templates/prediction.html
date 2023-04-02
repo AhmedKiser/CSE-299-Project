@@ -28,6 +28,9 @@
           </div>
         </div>
       </nav> 
+      {% if result %}
+        <h1>Flower you're trying to classify is {{result}}</h1>
+    {% endif %}
       <section class="Form my-4 mx-7">
         <div class="container">
                 <div class="col-lg-7 col-xl-7 card flex-row mx-auto px-0 bg-success">

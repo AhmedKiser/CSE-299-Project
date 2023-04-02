@@ -7,6 +7,7 @@ urlpatterns = [
      path('login/',views.LoginUser, name='login'),
      path('registration/',views.registration, name='registration'),
      path('predict/',views.predict, name="predict"),
+     
     
     
 ]

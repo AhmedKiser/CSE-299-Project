@@ -31,31 +31,24 @@ def predict(request):
         pp=float(request.POST.get('p'))
         kp=float(request.POST.get('k'))
         ph=float(request.POST.get('ph'))
+        
 
-        with open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl','rb') as file: 
-                model = pickle.load(file)
-        # # model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.sav', 'rb'))
-        
-        prediction = model.predict(np.array([[nt, pp, kp, ph]]))[0]
-        # prediction = model.predict([[nt, pp, kp, ph]])
-        
-        new_data = prediction(n = nt, p = pp, k = kp, ph = ph)
-        new_data.save()
-        crop_names = ['wheat', 'rice', 'maize', 'chickpea', 'kidney beans', 'pigeon peas', 'moth beans', 'mung beans', 'black gram', 'lentil', 'pomegranate', 'banana', 'mango', 'grapes', 'watermelon', 'muskmelon', 'apple', 'orange', 'papaya', 'coconut', 'cotton', 'jute', 'coffee']
-        predicted_crop = crop_names[prediction]
-        context = {'predicted_crop': predicted_crop}
-        
-        
-    return render(request, 'result.html')   
-    #     model = pd.read_pickle(r"C:/Users/User/Desktop/299/CSE-299-Project\Model\modelpickle")
-    #     # Make prediction
-    #     result = model.predict([[nt ,pp, kp, ph]])
+        # with open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl','rb') as file: 
+        #         model = pickle.load(file)
+        # model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.sav', 'rb'))
 
-    #     classification = result[0]
+        new = pickle.load(open("C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
+        y = new.predict([[nt,pp,kp,ph]])
 
-    #     prediction.objects.create(n = np, p = pp, k = kp, ph=ph)
-    
-    # return JsonResponse({'result': classification, 'n': np,'p': kp, 'k': pp, 'ph': ph},safe=False)
+
+        # y_pred = model.predict([[nt, pp, kp, ph]])
+        
+        
+        return render(request, 'prediction.html', {'result' : y})
+    return render(request, 'prediction.html')
+        
+        
+   
 
 
 def view_results(request):
