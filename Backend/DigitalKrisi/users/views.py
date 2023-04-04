@@ -27,10 +27,10 @@ def login(request):
 def predict(request):
     
     if request.method=='POST':
-        nt=float(request.POST.get('n'))
-        pp=float(request.POST.get('p'))
-        kp=float(request.POST.get('k'))
-        ph=float(request.POST.get('ph'))
+        nt= int(request.POST.get('n'))
+        pp= int(request.POST.get('p'))
+        kp= int(request.POST.get('k'))
+        ph= int(request.POST.get('ph'))
         
 
         # with open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl','rb') as file: 
@@ -38,13 +38,63 @@ def predict(request):
         # model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.sav', 'rb'))
 
         new = pickle.load(open("C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
-        y = new.predict([[nt,pp,kp,ph]])
+        y = int ( new.predict([[nt,pp,kp,ph]]) )
 
-
-        # y_pred = model.predict([[nt, pp, kp, ph]])
+        if y == 0:
+            c = 'papaya'
+        elif y == 1:
+            c = 'orange'
+        elif y == 2:
+            c = 'orange'
+        elif y == 3:
+            c = 'muskmelon'
+        elif y == 4:
+            c = 'orange'
+        elif y == 5:
+            c = 'muskmelon'
+        elif y == 6:
+            c = 'orange'
+        elif y == 7:
+            c = 'muskmelon'
+        elif y == 8:
+            c = 'orange'
+        elif y == 9:
+            c = 'muskmelon'
+        elif y == 10:
+            c = 'orange'
+        elif y == 11:
+            c = 'muskmelon'
+        elif y == 12:
+            c = 'orange'
+        elif y == 13:
+            c = 'muskmelon'
+        elif y == 14:
+            c = 'orange'
+        elif y == 15:
+            c = 'muskmelon'
+        elif y == 16:
+            c = 'orange'
+        elif y == 17:
+            c = 'muskmelon'
+        elif y == 18:
+            c = 'orange'
+        elif y == 19:
+            c = 'muskmelon'
+        elif y == 20:
+            c = 'orange'
+        elif y == 21:
+            c = 'muskmelon'
+        elif y == 22:
+            c = 'orange'
         
         
-        return render(request, 'prediction.html', {'result' : y})
+        
+        else:
+            c = 'invalid'
+
+        
+        
+        return render(request, 'prediction.html', {'result' : c})
     return render(request, 'prediction.html')
         
         
