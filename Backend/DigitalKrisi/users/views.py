@@ -30,7 +30,8 @@ def predict(request):
         nt= int(request.POST.get('n'))
         pp= int(request.POST.get('p'))
         kp= int(request.POST.get('k'))
-        ph= int(request.POST.get('ph'))
+        ph= float(request.POST.get('ph'))
+        
         
 
         # with open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl','rb') as file: 
@@ -40,50 +41,53 @@ def predict(request):
         new = pickle.load(open("C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
         y = int ( new.predict([[nt,pp,kp,ph]]) )
 
+        # ins = prediction(n=nt, p = pp, k = kp, ph =ph)
+        # ins.save()
+
         if y == 0:
-            c = 'papaya'
+            c = 'apple'
         elif y == 1:
-            c = 'orange'
+            c = 'banana'
         elif y == 2:
-            c = 'orange'
+            c = 'blackgram'
         elif y == 3:
-            c = 'muskmelon'
+            c = 'chickpea'
         elif y == 4:
-            c = 'orange'
+            c = 'coconut'
         elif y == 5:
-            c = 'muskmelon'
+            c = 'coffee'
         elif y == 6:
-            c = 'orange'
+            c = 'cotton'
         elif y == 7:
-            c = 'muskmelon'
+            c = 'grapes'
         elif y == 8:
-            c = 'orange'
+            c = 'jute'
         elif y == 9:
-            c = 'muskmelon'
+            c = 'kidneybeans'
         elif y == 10:
-            c = 'orange'
+            c = 'lentil'
         elif y == 11:
-            c = 'muskmelon'
+            c = 'maize'
         elif y == 12:
-            c = 'orange'
+            c = 'mango'
         elif y == 13:
-            c = 'muskmelon'
+            c = 'mothbeans'
         elif y == 14:
-            c = 'orange'
+            c = 'mungbean'
         elif y == 15:
             c = 'muskmelon'
         elif y == 16:
             c = 'orange'
         elif y == 17:
-            c = 'muskmelon'
+            c = 'papaya'
         elif y == 18:
-            c = 'orange'
+            c = 'pigeonpeas'
         elif y == 19:
-            c = 'muskmelon'
+            c = 'pomegranate'
         elif y == 20:
-            c = 'orange'
+            c = 'rice'
         elif y == 21:
-            c = 'muskmelon'
+            c = 'watermelon'
         elif y == 22:
             c = 'orange'
         
@@ -91,6 +95,10 @@ def predict(request):
         
         else:
             c = 'invalid'
+
+        
+        ins = prediction(n=nt, p = pp, k = kp, ph =ph)
+        ins.save()
 
         
         

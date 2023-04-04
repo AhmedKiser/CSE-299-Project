@@ -29,10 +29,24 @@
         </div>
       </nav> 
       {% if result %}
-        <h1>Predicted crop is {{result}}</h1>
-    {% endif %}
+      <div class="container">
+        
+          
+        <div class="alert alert-success" role="alert">
+          
+          <h1>Predicted crop is {{result}}</h1>
+        </div>
+            
+            
+         
+      
+        
+      {% endif %}
+      
+        
       <section class="Form my-4 mx-7">
-        <div class="container">
+        
+        
                 <div class="col-lg-7 col-xl-7 card flex-row mx-auto px-0 bg-success">
                   <div class="col-lg-10 px-4 pt-5 text-center">
                   <h2 ><b>Predict of Crop</b></h2><br>
@@ -55,7 +69,7 @@
                             </div>
                             <div class="'form-row">
                                 <div class="clg-lg-7 ">
-                                    <input type="number" placeholder="PH Level" class="form-control my-3 p-3 " name="ph">
+                                    <input type="number" placeholder="PH Level" class="form-control my-3 p-3 " step="any" name="ph">
                                 </div>
                                 <button type="submit" class="btn btn-primary" value="submit">Submit</button>
                     </form>
