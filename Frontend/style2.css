@@ -1,0 +1,13 @@
+.body{
+    background: white;
+}
+.navbar{
+    background-color: rgba(82, 106, 78, 1);
+}
+
+.card{
+
+    background: linear-gradient(67.84deg, rgba(34, 74, 28, 0.9) 0.67%, rgba(110, 255, 142, 0) 100.51%);
+    filter: drop-shadow(2px 2px 40px rgba(23, 72, 16, 0.95));
+    border-radius: 10px;
+}

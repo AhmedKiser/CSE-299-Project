@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 
-model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
+model = pickle.load(open('C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
 
 
 # Create your views here.
@@ -38,7 +38,7 @@ def predict(request):
         #         model = pickle.load(file)
         # model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.sav', 'rb'))
 
-        new = pickle.load(open("C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
+        new = pickle.load(open("C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
         y = int ( new.predict([[nt,pp,kp,ph]]) )
 
         # ins = prediction(n=nt, p = pp, k = kp, ph =ph)
