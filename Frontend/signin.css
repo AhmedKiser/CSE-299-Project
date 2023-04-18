@@ -1,0 +1,28 @@
+.body {
+    background: white;
+  }
+  
+  .navbar {
+    background-color: #526A4E;
+    ;
+  }
+  .btn-primary {
+    background-color: rgb(25, 77, 28); 
+  }
+  
+  .btn-primary:hover {
+    background-color: rgb(130, 206, 148);
+    cursor: pointer;
+  }
+  h2 {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+article{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

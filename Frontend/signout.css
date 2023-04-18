@@ -1,0 +1,27 @@
+.body {
+    background: white;
+  }
+  
+  .navbar {
+    background-color: #526A4E;
+    ;
+  }
+
+  hgroup, p, article {
+  
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    margin: 10px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    hgroup, article1 {
+      font-size: 14px;
+    }
+    hgroup, p, article {
+      font-size: 14px;
+    
