@@ -14,9 +14,10 @@ class user(models.Model):
 
 class prediction(models.Model):
     # uID = models.IntegerField(null=True)
-    n = models.FloatField(max_length=40)
-    p = models.FloatField(max_length=30)
-    k = models.FloatField(max_length=15)
+    n = models.IntegerField(max_length=40)
+    p = models.IntegerField(max_length=30)
+    k = models.IntegerField(max_length=15)
     ph = models.FloatField()
+    
         
 
