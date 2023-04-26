@@ -36,7 +36,9 @@ import numpy as np
 # from tensorflow.keras.models import load_model
 
 # model = pickle.load(open('C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
-model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
+# model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
+model = pickle.load(open('C:/Users/Lenovo/Desktop/CSE-299-Project/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
+# C:\Users\Lenovo\Desktop\CSE-299-Project\CSE-299-Project\Model\Linear_Reg.pkl
 
 
 # Create your views here.
@@ -295,8 +297,10 @@ def classfc(request):
     
 
     if request.method == 'POST':
-        model = load_model('C:/Users/User/Desktop/299/CSE-299-Project/Backend/DigitalKrisi/users/model2.h5')
+        # model = load_model('C:/Users/User/Desktop/299/CSE-299-Project/Backend/DigitalKrisi/users/diseases.h5')
+        model = load_model('C:/Users/Lenovo/Desktop/CSE-299-Project/CSE-299-Project/Backend/DigitalKrisi/users/diseases.h5')
         print(5)
+
 
         # my_file = request.FILES['my_file']
         uploaded_file = request.FILES['image']
