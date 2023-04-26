@@ -14,7 +14,29 @@ import numpy as np
 import pandas as pd
 
 
-model = pickle.load(open('C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
+from django.core.files.storage import FileSystemStorage
+
+
+from PIL import Image
+
+from django.shortcuts import render
+from django.http import HttpResponse
+import tensorflow as tf
+from keras.models import load_model
+import keras.utils as image
+# from keras.preprocessing import image
+
+from django.conf import settings
+# rest of the code
+
+
+
+
+import numpy as np
+# from tensorflow.keras.models import load_model
+
+# model = pickle.load(open('C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
+model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
 
 
 # Create your views here.
@@ -179,6 +201,7 @@ def registration(request):
     return render (request,'registration.html')
 
 def LoginUser(request):
+    
     if request.method=='POST':
         username=request.POST.get('username')
         pass1=request.POST.get('password')
@@ -211,3 +234,97 @@ def LogoutPage(request):
 #                 return redirect('login.html')
 #     else:
 #         return render(request,'login.html',{})
+
+# def classf(request):
+#     return render(request,'classification.html')
+
+# views.py
+def classf(request):
+    # load the trained model
+    model = load_model('C:/Users/User/Desktop/299/CSE-299-Project/Backend/DigitalKrisi/users/model.h5')
+
+    if request.method == 'POST' and request.FILES.get('my_file'):
+        # get the uploaded image file
+        # uploaded_file = request.FILES['image']
+        uploaded_file = request.FILES['my_file']
+        fs = FileSystemStorage()
+        name = fs.save(uploaded_file.name, uploaded_file)
+
+        # preprocess the image
+        # img = image.load_img('media/' + name, target_size=(224, 224))
+        from PIL import Image
+        img = Image.open('media/' + name).resize((224, 224))
+        x = image.img_to_array(img)
+        x = np.expand_dims(x, axis=0)
+        # x = preprocess_input(x)
+
+        # make predictions
+        predictions = model.classf(x)
+        predicted_class = np.argmax(predictions, axis=1)[0]
+
+        # pass the predicted class to the predict.html template
+        context = {'predicted_class': predicted_class}
+        return render(request, 'classfication.html', context)
+
+    return render(request, 'classification.html')
+# def predict(request):
+#     # check if the request contains an image file
+#     if request.method == 'POST' and request.FILES['image']:
+#         # load the saved deep learning model
+#         model = load_model('model.h5')
+        
+#         # read and preprocess the image
+#         img = request.FILES['image']
+#         img = image.load_img(img, target_size=(224, 224))
+#         img = image.img_to_array(img)
+#         img = np.expand_dims(img, axis=0)
+#         img = img/255.0
+        
+#         # make a prediction using the loaded model
+#         prediction = model.predict(img)
+        
+#         # return the predicted classification as a response
+#         return HttpResponse(prediction)
+        
+#     # if the request doesn't contain an image file, return an error
+#     else:
+#         return HttpResponse('Error: no image file provided')
+
+def classfc(request):
+    # load the trained model
+    
+
+    if request.method == 'POST':
+        model = load_model('C:/Users/User/Desktop/299/CSE-299-Project/Backend/DigitalKrisi/users/model2.h5')
+        print(5)
+
+        # my_file = request.FILES['my_file']
+        uploaded_file = request.FILES['image']
+
+        fs = FileSystemStorage()
+        name = fs.save(uploaded_file.name, uploaded_file)
+        print(name)
+    
+        # preprocess the image
+        # img = image.load_img(image, target_size=(224, 224))
+        # img = load_img('media/' + name, target_size=(224, 224))
+    
+        img = Image.open(settings.MEDIA_ROOT + '/' + name).resize((256, 256))
+
+        x = image.img_to_array(img)
+        x = np.expand_dims(x, axis=0)
+        # x = preprocess_input(x)
+
+        # make predictions
+        predictions = model.predict(x)
+        # predicted_class = np.argmax(predictions, axis=1)[0]
+        predicted_class = np.argmax(predictions)
+        print(predicted_class)
+
+        # pass the predicted class to the predict.html template
+        context = {'predicted_class': predicted_class}
+        return render(request, 'predict.html', context)
+
+    return render(request, 'upload.html')
+
+

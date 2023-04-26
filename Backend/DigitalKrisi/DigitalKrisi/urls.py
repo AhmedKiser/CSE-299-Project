@@ -24,4 +24,6 @@ urlpatterns = [
     path('predict/',views.predict,name="predict"),
     path('registration/',views.registration,name='registration'),
     path('accounts/', include('allauth.urls')),
+    path('classf/',views.classf),
+    path('classfc/',views.classfc,name='classf'),
 ]
