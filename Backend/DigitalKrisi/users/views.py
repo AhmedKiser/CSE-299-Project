@@ -328,9 +328,29 @@ def classfc(request):
         # predicted_class = np.argmax(predictions, axis=1)[0]
         predicted_class = np.argmax(predictions)
         print(predicted_class)
+        if predicted_class == 0:
+            c = 'Corn Blight'       
+        elif predicted_class == 1:
+            c = 'Corn Common Rust'
+        elif predicted_class == 2:
+            c = 'Corn Gray Leaf Spot'
+        elif predicted_class == 3:
+            c = 'Healthy Corn'
+        elif predicted_class == 4:
+            c = 'Rice Bacterial leaf blight'
+        elif predicted_class == 5:
+            c = 'Rice Brown spot'
+        elif predicted_class == 6:
+            c = 'Rice Leaf smut'
+        elif predicted_class == 7:
+            c = 'Wheat Healthy'
+        elif predicted_class == 8:
+            c = 'Wheat_ eptoria'
+        elif predicted_class == 9:
+            c = 'Wheat stripe_rust'
 
         # pass the predicted class to the predict.html template
-        context = {'predicted_class': predicted_class}
+        context = {'predicted_class': c}
         return render(request, 'predict.html', context)
 
     return render(request, 'upload.html')
