@@ -36,8 +36,8 @@ import numpy as np
 # from tensorflow.keras.models import load_model
 
 # model = pickle.load(open('C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
-# model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
-model = pickle.load(open('C:/Users/Lenovo/Desktop/CSE-299-Project/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
+model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
+# model = pickle.load(open('C:/Users/Lenovo/Desktop/CSE-299-Project/CSE-299-Project/Model/Linear_Reg.pkl', 'rb'))
 # C:\Users\Lenovo\Desktop\CSE-299-Project\CSE-299-Project\Model\Linear_Reg.pkl
 
 
@@ -47,6 +47,10 @@ def landingPage(request):
 
 def login(request):
     return render(request,'login.html')
+
+def aboutus(request):
+    return render(request,'about.html')
+
 
 def predict(request):
     

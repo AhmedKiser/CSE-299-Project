@@ -10,33 +10,105 @@
     <link rel="stylesheet" href="{% static 'index.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Digital Krisi</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <form class="container-fluid justify-content-start">
-                    <button class="btn btn-outline-success me-2" type="button">Registration</button>
-                    <button class="btn btn-outline-success me-2" type="button">Login</button>
-                    
-                  </form>
-              </li>
-             
-            </ul>
-            
+  <nav class="navbar navbar-expand-lg bg-success navbar-dark new">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Digital Krisi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="register.html">Register Here</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="3000">
+        <!-- <img src="image-1.jpeg" class="d-block w-100 h-500" alt="..."> -->
+        <img src="{% static 'image-1.jpeg' %}" class="d-block w-100 h-500" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="{% static 'image-2.jpg' %}" class="d-blocl w-100 h-500" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="{% static 'image-3.jpg' %}" class="d-block w-100 h-500" alt="...">
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <br>
+  <div style="display:flex;align-items:center;justify-content: space-around;">
+    <hgroup>
+      <h1>OUR SERVICES</h1>
+    </hgroup>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <img src="{% static 'image-4.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <button type="button" class="btn btn-success btn-lg"> <a href="prediction.html">Crop Prediction</a></button>
+          <article class="card-text">Harvest with confidence: Accurate crop predictions</article>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <img src="{% static 'image-6.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="row" style="display:flex;align-items:center;justify-content:space-around;width:250px;">
+
+            <button type="button" class="btn btn-success btn-lg justify-content-center"><a href="detect.html">Disease
+                Detection</a></button>
+          </div>
+          <aside class="card-text">Early detection saves crops - let AI do the job</aside>
+        </div>
+      </div>
+    </div><br><br><br>
+    <section style="margin-top: 40px;margin-left:50px;width:50%">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <hgroup>
+              <h4> About</h4>
+              <aside>About Us</aside>
+              <aside>Gallery</aside>
+              <aside>FAQ</aside>
+            </hgroup>
+          </div>
+          <div class="col-md-3">
+            <h4> Legal</h4>
+            <aside>Privacy Policy</aside>
+            <aside>Terms of Service</aside>
+            <aside>Risk Management</aside>
+            </hgroup>
+          </div>
+          <div class="col-md-3">
+            <h4> Contact</h4>
+            <aside>Email:digitalkrishi@gamil.com</aside>
+            <aside>Adress:Dhaka,Bangladesh</aside>
+            <aside> Phone:+88012345678</aside>
           </div>
         </div>
-      </nav> 
+    </section>
+    <section style="margin-top:70px;width:99%;">
+      <p style="background-color: rgb(52, 76, 48);height:50px;color:white;" class="blockquote-footer">Copyright ©2023
+        DIGITAL KRISHI, All Rights Reserved. send us a mail:
+        digitalkrishi@gmail.com </p>
+    </section>
       {% if user.is_authenticated %}
       <p>Welcome, {{ user.username }} !</p>
       {% else %}
