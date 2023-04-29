@@ -302,7 +302,9 @@ def classfc(request):
 
     if request.method == 'POST':
         # model = load_model('C:/Users/User/Desktop/299/CSE-299-Project/Backend/DigitalKrisi/users/diseases.h5')
-        model = load_model('C:/Users/Lenovo/Desktop/CSE-299-Project/CSE-299-Project/Backend/DigitalKrisi/users/diseases.h5')
+        # model = load_model('C:/Users/Lenovo/Desktop/CSE-299-Project/CSE-299-Project/Backend/DigitalKrisi/users/diseases.h5')
+        model = load_model('C:/Users/User/Desktop/project/CSE-299-Project/Backend/DigitalKrisi/users/diseases.h5')
+        
         print(5)
 
 
@@ -350,8 +352,8 @@ def classfc(request):
             c = 'Wheat stripe_rust'
 
         # pass the predicted class to the predict.html template
-        context = {'predicted_class': c}
-        return render(request, 'predict.html', context)
+        context = {'predicted_class': predicted_class}
+        return render(request, 'upload.html', context)
 
     return render(request, 'upload.html')
 

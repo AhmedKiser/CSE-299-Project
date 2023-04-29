@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@500&display=swap');
+
+.carousel-item img {
+    height: 93.3vh;
+    opacity: 0.6;
+  
+}
+.navbar {
+    height: 11%;
+  }
+
+  .container-fluid .navbar-brand{
+    height: 50px; 
+    font-family: 'Titan One', cursive;
+    font-size: 30px;
+    
+  }
+
+
+  .container-fluid a{
+    font-family: 'Red Rose', cursive;
+    font-size: 20px;
+    padding-left: 25px !important;
+    
+  }
+
+  .container-fluid a:hover{
+    font-family: 'Red Rose', cursive;
+    animation: shake 0.5s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+    
+  }
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+.carousel-item .carousel-caption{
+    position: absolute;
+  /* top: 60%;
+  left: 50%; */
+  transform: translate(-50%, -50%);
+  color: black;
+  font-family: 'Arvo', serif;
+  font-size: larger;
+    
+  }
+
+  #frosted {
+	position: relative;
+	z-index: 2;
+	backdrop-filter: blur(10px);
+	color: black;
+	font-size: 25px;
+	padding: 50px;
+	border-radius: 10px;
+	box-shadow: 0 5px 50px rgba(0,0,0,0.5);
+    width: 80%;
+    top: 50% !important;
+    left: 10%;
+    padding: 80px;
+    font-family: 'Arvo', serif;
+    margin-top: 20%;
+	
+}
+body{
+    background-image: url(bg.png);
+}
+
+h5{
+    font-size: 35px !important;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.new{
+    text-align: center;
+    border: auto;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+.new input{
+    text-align: center;
+    border: auto;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.new input:hover {
+    background-color: aqua;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #c82333;
+  }
+
+  .alert-success {
+    background-color: #0c7024 !important;
+  }
+  
+  .cancel-btn {
+    float: right;
+  }
+  .alert {
+    position: relative;
+    padding-right: 30px; /* add padding to make room for the cross icon */
+  }
+  
+  .cancel-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    line-height: 1;
+    padding: 6px 10px;
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+  }
+  
+  .cancel-btn:hover {
+    color: #333;
+  }
+  
+  .cancel-btn:before {
+    content: "\f00d"; /* use the Font Awesome cross icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  
