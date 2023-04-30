@@ -41,18 +41,14 @@
   <div class="container">
     
     <div class="alert alert-success" role="alert">
-      <p>The uploaded image is classified as <strong>{{ predicted_class }}</strong>.</p>
-      <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
-      <div class="alert alert-success" role="alert">
-        <p>The uploaded image is classified as <strong>{{ predicted_class }}</strong>.</p>
-        <span class="cancel-btn"></span>
-      </div>
+      <p>The uploaded image is classified as <strong>{{predicted_class}}</strong>.</p>
+      <button type="button" class="btn btn-danger">Cancel</button>
       
     </div>
   </div>
 
   <script>
-    const cancelBtn = document.querySelector('.cancel-btn');
+    const cancelBtn = document.querySelector('.btn-danger');
     const alert = document.querySelector('.alert');
 
     cancelBtn.addEventListener('click', () => {

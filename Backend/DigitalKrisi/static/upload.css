@@ -103,52 +103,52 @@ h5{
     background-color: aqua;
 }
 
-.cancel-btn {
-    background-color: #dc3545;
-    border: none;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .cancel-btn:hover {
-    background-color: #c82333;
-  }
+.container p{
+  margin-top: 20px;
+  color: aliceblue !important;
+}
 
-  .alert-success {
-    background-color: #0c7024 !important;
-  }
-  
-  .cancel-btn {
-    float: right;
-  }
-  .alert {
-    position: relative;
-    padding-right: 30px; /* add padding to make room for the cross icon */
-  }
-  
-  .cancel-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 20px;
-    line-height: 1;
-    padding: 6px 10px;
-    background: none;
-    border: none;
-    color: #aaa;
-    cursor: pointer;
-  }
-  
-  .cancel-btn:hover {
-    color: #333;
-  }
-  
-  .cancel-btn:before {
-    content: "\f00d"; /* use the Font Awesome cross icon */
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-  }
-  
+.cancel-btn {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cancel-btn:hover {
+  background-color: #c82333;
+}
+
+.alert-success {
+  background-color: #0c7024 !important;
+  margin-bottom: 10px;
+}
+
+.cancel-btn {
+  float: right;
+}
+
+.alert {
+  position: relative;
+  padding-right: 30px; /* add padding to make room for the cross icon */
+}
+
+.cancel-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  line-height: 1;
+  padding: 6px 10px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  color: #333;
+}

@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as authlogin
-from .models import prediction
+from .models import prediction,newprediction
 from .forms import InputForm
 import pickle
 import numpy as np
@@ -29,6 +29,7 @@ import keras.utils as image
 from django.conf import settings
 # rest of the code
 
+import requests
 
 
 
@@ -60,13 +61,27 @@ def predict(request):
         kp= int(request.POST.get('k'))
         ph= float(request.POST.get('ph'))
         
+        api_key = '99bf03aea71f6ccf5d27a1c5c0334c5e'
+        city = "Dhaka"
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            data = response.json()
+            t =  data['main']['temp']
+            print(t)
+            h = data['main']['humidity']
+            print(h)
+
         
+
 
         # with open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl','rb') as file: 
         #         model = pickle.load(file)
         # model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.sav', 'rb'))
 
-        new = pickle.load(open("C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
+        # new = pickle.load(open("C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
+        new = pickle.load(open("C:/Users/User/Desktop/project/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
         y = int ( new.predict([[nt,pp,kp,ph]]) )
 
         # ins = prediction(n=nt, p = pp, k = kp, ph =ph)
@@ -135,7 +150,106 @@ def predict(request):
         
         
    
+def npredict(request):
+    
+    if request.method=='POST':
+        api_key = '99bf03aea71f6ccf5d27a1c5c0334c5e'
+        city = "Dhaka"
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+        response = requests.get(url)
 
+        if response.status_code == 200:
+            data = response.json()
+            t =  data['main']['temp']
+            print(t)
+            h = data['main']['humidity']
+            print(h)
+
+        print(h)
+
+
+        nt= int(request.POST.get('n'))
+        pp= int(request.POST.get('p'))
+        kp= int(request.POST.get('k'))
+        ph= float(request.POST.get('ph'))
+        h = data['main']['temp']
+     
+
+
+        # with open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.pkl','rb') as file: 
+        #         model = pickle.load(file)
+        # model = pickle.load(open('C:/Users/User/Desktop/299/CSE-299-Project/Model/Linear_Reg.sav', 'rb'))
+
+        # new = pickle.load(open("C:/Users/HP/Desktop/New folder (2)/CSE-299-Project/Model/Linear_Reg.pkl", "rb"))
+        new = pickle.load(open("C:/Users/User/Desktop/project/CSE-299-Project/Model/newPrediction.pkl", "rb"))
+        y = abs(int ( new.predict([[nt,pp,kp,ph,h]]) ))
+        print(y)
+
+        # ins = prediction(n=nt, p = pp, k = kp, ph =ph)
+        # ins.save()
+
+        if y == 0:
+            c = 'apple'
+        elif y == 1:
+            c = 'banana'
+        elif y == 2:
+            c = 'blackgram'
+        elif y == 3:
+            c = 'chickpea'
+        elif y == 4:
+            c = 'coconut'
+        elif y == 5:
+            c = 'coffee'
+        elif y == 6:
+            c = 'cotton'
+        elif y == 7:
+            c = 'grapes'
+        elif y == 8:
+            c = 'jute'
+        elif y == 9:
+            c = 'kidneybeans'
+        elif y == 10:
+            c = 'lentil'
+        elif y == 11:
+            c = 'maize'
+        elif y == 12:
+            c = 'mango'
+        elif y == 13:
+            c = 'mothbeans'
+        elif y == 14:
+            c = 'mungbean'
+        elif y == 15:
+            c = 'muskmelon'
+        elif y == 16:
+            c = 'orange'
+        elif y == 17:
+            c = 'papaya'
+        elif y == 18:
+            c = 'pigeonpeas'
+        elif y == 19:
+            c = 'pomegranate'
+        elif y == 20:
+            c = 'rice'
+        elif y == 21:
+            c = 'watermelon'
+        elif y == 22:
+            c = 'orange'
+        
+        
+        
+        else:
+            c = 'invalid'
+
+        
+        ins = newprediction(n=nt, p = pp, k = kp, ph =ph, h=h)
+        ins.save()
+
+        
+        
+        return render(request, 'prediction.html', {'result' : c})
+    return render(request, 'prediction.html')
+        
+        
 
 def view_results(request):
     # Submit prediction and show all
@@ -352,7 +466,7 @@ def classfc(request):
             c = 'Wheat stripe_rust'
 
         # pass the predicted class to the predict.html template
-        context = {'predicted_class': predicted_class}
+        context = {'predicted_class': c}
         return render(request, 'upload.html', context)
 
     return render(request, 'upload.html')

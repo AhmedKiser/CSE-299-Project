@@ -10,6 +10,8 @@ urlpatterns = [
      path('predict/',views.predict, name="predict"),
      path('classf/',views.classf),
      path('classf/',views.classf,name='classf'),
+
+     path('npredict/',views.npredict, name="npredict"),
      
     
     
