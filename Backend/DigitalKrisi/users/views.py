@@ -246,8 +246,8 @@ def npredict(request):
 
         
         
-        return render(request, 'prediction.html', {'result' : c})
-    return render(request, 'prediction.html')
+        return render(request, 'npredict.html', {'result' : c})
+    return render(request, 'npredict.html')
         
         
 

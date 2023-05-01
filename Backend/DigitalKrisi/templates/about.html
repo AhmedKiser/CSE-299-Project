@@ -10,27 +10,26 @@
     <link rel="stylesheet" href="{% static 'style1.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">DIGITAL KRISHI</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="register.html">Register Here</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login.html">Login Here</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav> 
+  <nav class="navbar navbar-expand-lg bg-success navbar-dark new">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Digital Krisi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href=" {% url 'account_login' %}">Login Here</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
       <div class="hero">
         <video autoplay loop muted plays-inline class="back-video">
             <source src="{% static 'background.mp4' %}" type="video/mp4">
@@ -53,14 +52,16 @@
         <div class="card">
           <img src="{% static 'predict.jpg' %}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title"><b>Crop Prediction</b></h5>
+            <button type="button" class="btn btn-success btn-lg justify-content-center"><a href="{% url 'npredict' %}" style="text-decoration: none;color: #000;
+            ;">Crop Prediction</a></button>
+            
             <p class="card-text">Crop prediction help to decide what to grow and Create sustainable growth of production with reduced costing.</p>
           </div>
         </div>
         <div class="card">
           <img src="{% static 'img.jpg' %}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title"><b>Detect Disease</b></h5>
+            <button type="button" class="btn btn-success btn-lg justify-content-center"><a href="{% url 'classf' %}"style="text-decoration: none;color: #000;">Image Detection</a></button>
             <p class="card-text">The lack of proper detection of diseases makes wrong decisions for farmers.This system Detect disease and give proper solution.</p>
           </div>
         </div>
@@ -69,3 +70,4 @@
       </body>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </html>
+
